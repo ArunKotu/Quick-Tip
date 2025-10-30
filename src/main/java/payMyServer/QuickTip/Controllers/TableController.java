@@ -2,7 +2,6 @@ package payMyServer.QuickTip.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import payMyServer.QuickTip.Entity.Table;
 import payMyServer.QuickTip.Services.TableService;
@@ -25,7 +24,6 @@ public class TableController {
     public ResponseEntity<Table> getTableById(@PathVariable String id) {
         return tableService.getTableById(id);
     }
-    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/admin")
     public ResponseEntity<Table> addTable(@RequestBody Table table) {
         return tableService.addTable(table);
